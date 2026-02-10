@@ -4,12 +4,15 @@ import lombok.Getter;
 import lombok.Setter;
 
 public class Board {
+
   @Getter
   @Setter
   private int rows;
+
   @Getter
   @Setter
   private int columns;
+
   private Piece[][] pieces;
 
 

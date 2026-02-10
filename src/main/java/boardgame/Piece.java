@@ -12,7 +12,7 @@ public class Piece {
   protected Position position;
 
   @Getter
-  private Board board;
+  protected Board board;
 
   public Piece(Board board) {
     this.board = board;
