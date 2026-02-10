@@ -19,7 +19,6 @@ public class UserInterface {
     } else {
       System.out.print(onePiece);
     }
-
     System.out.print(" ");
   }
 }

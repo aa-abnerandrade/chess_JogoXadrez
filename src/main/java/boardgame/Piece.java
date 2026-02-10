@@ -27,4 +27,5 @@ public class Piece {
   public boolean isPossibleMove() {
     return true;
   }
+
 }
