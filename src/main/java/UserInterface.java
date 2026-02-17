@@ -47,16 +47,31 @@ public class UserInterface {
     for (int head = 0; head < allPieces.length; head++) {
       System.out.print((8 - head) + " ");
       for (int body = 0; body < allPieces.length; body++) {
-        printPiece(allPieces[head][body]);
+        printPiece(allPieces[head][body], false);
+      }
+      System.out.println();
+    }
+    String footer = "  a b c d e f g h";
+    System.out.println(footer);
+  }
+
+  public static void printBoard(ChessPiece[][] allPieces, boolean[][] possibleMoves) {
+    for (int head = 0; head < allPieces.length; head++) {
+      System.out.print((8 - head) + " ");
+      for (int body = 0; body < allPieces.length; body++) {
+        printPiece(allPieces[head][body], possibleMoves[head][body]);
       }
       System.out.println();
     }
     System.out.println("  a b c d e f g h");
   }
 
-  private static void printPiece(ChessPiece piece) {
+  private static void printPiece(ChessPiece piece, boolean background) {
+    if (background) {
+      System.out.print(ANSI_BLUE_BACKGROUND);
+    }
     if (piece == null) {
-      System.out.print("-");
+      System.out.print("-" + ANSI_RESET);
     }
     else {
       if (piece.getColor() == Color.WHITE) {
