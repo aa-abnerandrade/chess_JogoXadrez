@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
-public class Piece {
+public abstract class Piece {
 
   protected Position position;
 
@@ -20,12 +20,22 @@ public class Piece {
 
   }
 
-  public boolean allPossibleMoves() {
-    return true;
+  public abstract boolean[][] allPossibleMoves();
+
+  public boolean isPossibleMove(Position position) {
+    return allPossibleMoves()[position.getRow()][position.getColumn()];
   }
 
-  public boolean isPossibleMove() {
-    return true;
+  public boolean isThereAnyPossibleMove() {
+    boolean[][] mat = allPossibleMoves();
+    for (int i = 0; i < mat.length; i++) {
+      for (int j = 0; j < mat.length; j++) {
+        if (mat[i][j]) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 
 }

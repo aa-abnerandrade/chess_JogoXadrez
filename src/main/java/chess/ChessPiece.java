@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
-public class ChessPiece extends Piece {
+public abstract class ChessPiece extends Piece {
   @Getter
   private Board board;
 
