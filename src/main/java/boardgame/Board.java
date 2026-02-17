@@ -17,7 +17,7 @@ public class Board {
 
   public Board(int rows, int columns) {
     if (rows < 1 || columns < 1) {
-      throw new BoardException("Error creating board: there must be at least 1 row and 1 column");
+      throw new BoardException("Board: Error creating board: there must be at least 1 row and 1 column");
     }
     this.rows = rows;
     this.columns = columns;
@@ -26,24 +26,37 @@ public class Board {
 
   public Piece getSquareFromPieces(int row, int column) {
     if (!positionExists(row, column)) {
-      throw new BoardException("Position not on the board");
+      throw new BoardException("Board: Position not on the board");
     }
     return this.pieces[row][column];
   }
 
   public Piece getSquareFromPieces(Position position) {
     if (!positionExists(position)) {
-      throw new BoardException("Position not on the board");
+      throw new BoardException("Board: Position not on the board");
     }
     return this.pieces[position.getRow()][position.getColumn()];
   }
 
   public void placePiece(Piece piece, Position position) {
     if (thereIsAPiece(position)) {
-      throw new BoardException("There is already a piece on position " + position);
+      throw new BoardException("Board: There is already a piece on position " + position);
     }
     this.pieces[position.getRow()][position.getColumn()] = piece;
     piece.position = position;
+  }
+
+  public Piece removePiece(Position position) {
+    if (!positionExists(position)) {
+      throw new BoardException("Board: Position not on the board");
+    }
+    if (getSquareFromPieces(position) == null) {
+      return null;
+    }
+    Piece aux = getSquareFromPieces(position);
+    aux.position = null;
+    this.pieces[position.getRow()][position.getColumn()] = null;
+    return aux;
   }
 
   private boolean positionExists(int row, int column) {
@@ -56,7 +69,7 @@ public class Board {
 
   public boolean thereIsAPiece(Position position) {
     if (!positionExists(position)) {
-      throw new BoardException("Position not on the board");
+      throw new BoardException("Board: Position not on the board");
     }
     return getSquareFromPieces(position) != null;
   }
