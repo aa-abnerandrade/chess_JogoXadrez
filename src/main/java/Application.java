@@ -15,7 +15,7 @@ public class Application {
     ChessMatch chessMatch = new ChessMatch();
     List<ChessPiece> captured = new ArrayList<>();
 
-    while (!chessMatch.getCheckMate()) {
+    while (!chessMatch.isCheckMate()) {
       try {
         UserInterface.clearScreen();
         UserInterface.printMatch(chessMatch, captured);
@@ -45,19 +45,15 @@ public class Application {
         }
 
       }
-      catch (ChessException chessEx) {
+      catch (ChessException | InputMismatchException chessEx) {
         System.out.println(chessEx.getMessage());
         System.out.println("Press Enter to continue...");
         scannerIn.nextLine();
       }
-      catch (InputMismatchException imEx) {
-        System.out.println(imEx.getMessage());
-        System.out.println("Press Enter to continue...");
-        scannerIn.nextLine();
-      }
     }
+
     UserInterface.clearScreen();
     UserInterface.printMatch(chessMatch, captured);
-
   }
+
 }

@@ -53,9 +53,9 @@ public class UserInterface {
     printCapturedPieces(captured);
     System.out.println();
     System.out.println("Turn: " + chessMatch.getTurn());
-    if (!chessMatch.getCheckMate()) {
+    if (!chessMatch.isCheckMate()) {
       System.out.println("Waiting player: " + chessMatch.getCurrentPlayer());
-      if (chessMatch.getCheck()) {
+      if (chessMatch.isCheck()) {
         System.out.println("CHECK!");
       }
     } else {
@@ -108,8 +108,8 @@ public class UserInterface {
   }
 
   private static void printCapturedPieces(List<ChessPiece> captured) {
-    List<ChessPiece> white = captured.stream().filter(p -> p.getColor() == Color.WHITE).collect(Collectors.toList());
-    List<ChessPiece> black = captured.stream().filter(p -> p.getColor() == Color.BLACK).collect(Collectors.toList());
+    List<ChessPiece> white = captured.stream().filter(p -> p.getColor() == Color.WHITE).toList();
+    List<ChessPiece> black = captured.stream().filter(p -> p.getColor() == Color.BLACK).toList();
     System.out.println("Captured Pieces:");
     System.out.print("White: ");
     System.out.print(ANSI_WHITE);
