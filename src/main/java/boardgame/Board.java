@@ -2,7 +2,6 @@ package boardgame;
 
 import boardgame.exception.BoardException;
 import lombok.Getter;
-import lombok.Setter;
 
 public class Board {
 

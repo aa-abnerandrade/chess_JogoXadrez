@@ -5,11 +5,15 @@ import boardgame.Piece;
 import boardgame.Position;
 import chess.exception.ChessException;
 import lombok.Getter;
-import pieces.*;
+import pieces.Bishop;
+import pieces.King;
+import pieces.Knight;
+import pieces.Pawn;
+import pieces.Queen;
+import pieces.Rook;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ChessMatch {
 

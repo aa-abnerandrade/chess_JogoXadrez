@@ -3,7 +3,6 @@ package chess;
 import boardgame.Position;
 import chess.exception.ChessException;
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
 public class ChessPosition {

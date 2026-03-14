@@ -3,8 +3,6 @@ package chess;
 import boardgame.Board;
 import boardgame.Piece;
 import boardgame.Position;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 
 public abstract class ChessPiece extends Piece {
 
